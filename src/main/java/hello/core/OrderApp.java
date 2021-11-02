@@ -12,15 +12,17 @@ public class OrderApp {
 
     public static void main(String[] args) {
 
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        AppConfig appConfig = new AppConfig();
+
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         Long memberId = 1L;
 
         Member member = new Member(memberId, "m1", Grade.VIP);
         memberService.join(member);
 
-        Order order = orderService.createOrder(memberId, "item1", 10000);
+        Order order = orderService.createOrder(memberId, "item1", 20000);
 
         System.out.println("order = " + order.toString());
         System.out.println("order.calculatePrice = " + order.calculatePrice());
