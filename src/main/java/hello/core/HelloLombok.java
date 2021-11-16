@@ -16,5 +16,5 @@ public class HelloLombok {
 
         var name = helloLombok.getName();
         System.out.println("네임 = " + name);
-        }
+    }
 }
